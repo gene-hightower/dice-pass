@@ -1,7 +1,7 @@
 // Copyright © 2018 Gene Hightower
 
 // This program is distributed under the terms of the GNU General
-// Public License.  See the file COPYING.
+// Public License.  See the file LICENSE.
 
 #include <fstream>
 #include <iostream>
