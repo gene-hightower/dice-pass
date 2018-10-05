@@ -19,7 +19,7 @@ DEFINE_string(wordlist, "diceware.wordlist.txt", "file name of word list");
 DEFINE_int32(nwords, 6, "number of words");
 
 // clang-format off
-auto conv6(std::string const& arg)
+auto conv_roll(std::string const& arg)
 {
   return (arg[0] - '1') * 6 * 6 * 6 * 6
        + (arg[1] - '1') * 6 * 6 * 6
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
   for (auto lineno = 1; std::getline(f, line); ++lineno) {
     smatch matches;
     if (regex_match(line, matches, re_line)) {
-      auto nth = conv6(matches[1]) + 1;
+      auto nth = conv_roll(matches[1]) + 1;
       if (nth != lineno) {
         std::cerr << FLAGS_wordlist << ':' << lineno;
         std::cerr << " wrong roll " << nth << "\n";
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
       std::string arg = argv[i];
       smatch matches;
       if (regex_match(arg, matches, re_roll)) {
-        auto nth = conv6(matches[0]);
+        auto nth = conv_roll(matches[0]);
         std::cout << wds[nth] << ' ';
       }
     }
