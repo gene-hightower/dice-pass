@@ -36,14 +36,8 @@ int main(int argc, char **argv) {
 
   using namespace boost::xpressive;
 
-  // clang-format off
-  boost::xpressive::sregex re_roll = range('1', '6')
-                                  >> range('1', '6')
-                                  >> range('1', '6')
-                                  >> range('1', '6')
-                                  >> range('1', '6');
-  // clang-format on
-
+  boost::xpressive::sregex re_die = range('1', '6');
+  boost::xpressive::sregex re_roll = repeat<5, 5>(re_die);
   boost::xpressive::sregex re_line = (s1 = re_roll) >> '\t' >> (s2 = +~_ln);
 
   std::ifstream f{FLAGS_wordlist};
