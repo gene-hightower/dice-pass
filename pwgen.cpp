@@ -29,7 +29,8 @@ auto conv6(std::string const& arg)
 }
 // clang-format on
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   std::ios::sync_with_stdio(false);
 
   gflags::ParseCommandLineFlags(&argc, &argv, true);
@@ -48,7 +49,7 @@ int main(int argc, char **argv) {
   std::vector<std::string> wds;
   wds.reserve(6 * 6 * 6 * 6 * 6);
 
-  std::string line{};
+  std::string line;
   for (auto lineno = 1; std::getline(f, line); ++lineno) {
     smatch matches;
     if (regex_match(line, matches, re_line)) {
