@@ -18,16 +18,15 @@ DEFINE_string(wordlist, "diceware.wordlist.txt", "file name of word list");
 // See <http://world.std.com/~reinhold/dicewarefaq.html#howlong>
 DEFINE_int32(nwords, 6, "number of words");
 
-// clang-format off
 auto conv_roll(std::string const& arg)
 {
-  return (arg[0] - '1') * 6 * 6 * 6 * 6
-       + (arg[1] - '1') * 6 * 6 * 6
-       + (arg[2] - '1') * 6 * 6
-       + (arg[3] - '1') * 6
-       + (arg[4] - '1');
+  auto n = 0;
+  for (auto ch : arg) {
+    n *= 6;
+    n += ch - '1';
+  }
+  return n;
 }
-// clang-format on
 
 int main(int argc, char **argv)
 {
@@ -38,7 +37,7 @@ int main(int argc, char **argv)
   using namespace boost::xpressive;
 
   sregex re_die = range('1', '6');
-  sregex re_roll = repeat<5>(re_die);
+  sregex re_roll = repeat<4, 5>(re_die);
   sregex re_line = (s1 = re_roll) >> '\t' >> (s2 = +~_ln);
 
   std::ifstream f{FLAGS_wordlist};
@@ -47,7 +46,7 @@ int main(int argc, char **argv)
     perror(("error while opening file " + FLAGS_wordlist).c_str());
 
   std::vector<std::string> wds;
-  wds.reserve(6 * 6 * 6 * 6 * 6);
+  wds.reserve(6 * 6 * 6 * 6 * 6); // make room for 5 dice/digits
 
   std::string line;
   for (auto lineno = 1; std::getline(f, line); ++lineno) {
@@ -71,10 +70,7 @@ int main(int argc, char **argv)
     perror(("error while reading file " + FLAGS_wordlist).c_str());
   f.close();
 
-  if (wds.size() != 6 * 6 * 6 * 6 * 6) {
-    std::cerr << "wrong number of words " << wds.size() << '\n';
-    return 3;
-  }
+  wds.shrink_to_fit();
 
   if (argc == 1) {
     auto dis = std::uniform_int_distribution<>(0, wds.size() - 1);
