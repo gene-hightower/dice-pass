@@ -15,5 +15,5 @@ stdenv.mkDerivation {
     sha256 = "sha256-NGnyoHoo3pS5SkdvZGVP8x9dZYE7F5zxULTtheHGcGA=";
   };
 
-  buildInputs = [ boost ];
+  buildInputs = [ boost gflags ];
 }
