@@ -12,7 +12,7 @@ stdenv.mkDerivation {
     owner = "gene-hightower";
     repo = "dicepass";
     rev = "47e9206e4b446f75b239eca339bbbb671c83a761";
-    hash = "sha256-HHSXdAHWlQFdYXkkF4pHBcCGBBEeYP6wF5bTVWX/ni4=";
+    sha256 = "sha256-HHSXdAHWlQFdYXkkF4pHBcCGBBEeYP6wF5bTVWX/ni4=";
   };
 
   buildInputs = [ boost ];
