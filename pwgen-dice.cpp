@@ -34,7 +34,14 @@ int main(int argc, char **argv)
 
   gflags::ParseCommandLineFlags(&argc, &argv, true);
 
-  using namespace boost::xpressive;
+  // using namespace boost::xpressive;
+  using boost::xpressive::_ln;
+  using boost::xpressive::range;
+  using boost::xpressive::repeat;
+  using boost::xpressive::s1;
+  using boost::xpressive::s2;
+  using boost::xpressive::smatch;
+  using boost::xpressive::sregex;
 
   sregex re_die = range('1', '6');
   sregex re_roll = repeat<4, 5>(re_die);
