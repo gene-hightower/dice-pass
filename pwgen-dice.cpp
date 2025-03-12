@@ -1,4 +1,4 @@
-// Copyright © 2018 Gene Hightower
+// Copyright © 2018, 2025 Gene Hightower
 
 // This program is distributed under the terms of the GNU General
 // Public License.  See the file LICENSE.
