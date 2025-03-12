@@ -4,7 +4,12 @@ LDLIBS   += -lgflags
 
 SHELL := /bin/bash
 
+BINDIR ?= $(PREFIX)/bin
+
 pwgen-dice::
+
+install:: pwgen-dice
+	cp pwgen-dice $(BINDIR)
 
 clean::
 	rm -f pwgen-dice
