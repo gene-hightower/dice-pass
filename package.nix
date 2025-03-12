@@ -11,8 +11,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "gene-hightower";
     repo = "dicepass";
-    rev = "47e9206e4b446f75b239eca339bbbb671c83a761";
-    sha256 = "sha256-HHSXdAHWlQFdYXkkF4pHBcCGBBEeYP6wF5bTVWX/ni4=";
+    rev = "2e4447ec597a1737317b20fa0f57292d28660cdc";
+    sha256 = "sha256-NGnyoHoo3pS5SkdvZGVP8x9dZYE7F5zxULTtheHGcGA=";
   };
 
   buildInputs = [ boost ];
