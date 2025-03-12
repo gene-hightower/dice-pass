@@ -14,6 +14,5 @@ stdenv.mkDerivation {
     sha256 = "1skby8xqrlybwwf7hy36ykb6s19551ghhkmbfhbfzpbzb64z5567";
   };
 
-  nativeBuildInputs = [ gmake ];
   buildInputs = [ boost ];
 }
