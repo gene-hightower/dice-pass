@@ -5,8 +5,8 @@
 }:
 
 stdenv.mkDerivation {
-  name = "dice-pass-unstable";
-  version = "2025-03-12";
+  name = "dice-pass";
+  version = "0.0";
 
   src = fetchFromGitHub {
     owner = "gene-hightower";
