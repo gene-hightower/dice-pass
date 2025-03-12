@@ -1,17 +1,18 @@
 { stdenv
 , fetchFromGitHub
 , boost
+, gflags
 }:
 
 stdenv.mkDerivation {
-  name = "gapc-unstable";
-  version = "2023-07-05";
+  name = "dice-pass-unstable";
+  version = "2025-03-12";
 
   src = fetchFromGitHub {
     owner = "gene-hightower";
     repo = "dicepass";
-    rev = "8ddd2f7934b6f2aab966dc723a57e5713fe0f5d9";
-    sha256 = "sha256-7P2VV9oncTaOnxVx4G27SWCpu6uEGzs6PSL9R+U9YGo=";
+    rev = "";
+    sha256 = "";
   };
 
   buildInputs = [ boost ];
