@@ -9,6 +9,7 @@ BINDIR ?= $(PREFIX)/bin
 pwgen-dice::
 
 install:: pwgen-dice
+	mkdir -p $(BINDIR)
 	cp pwgen-dice $(BINDIR)
 
 clean::

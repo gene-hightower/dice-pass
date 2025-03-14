@@ -15,5 +15,10 @@ stdenv.mkDerivation {
     sha256 = "sha256-NGnyoHoo3pS5SkdvZGVP8x9dZYE7F5zxULTtheHGcGA=";
   };
 
-  buildInputs = [ boost gflags ];
+  buildInputs = [ make g++ boost gflags ];
+
+  installPhase = ''
+    mkdir -p $out/bin
+    cp pwgen-dice $out/bin/
+  '';
 }
